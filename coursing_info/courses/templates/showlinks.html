@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block description %}
+<p>تبریک میگم فراخوان های شما با موقیت ایجاد شد حالا میتونید از جدول زیر تمامی فراخوان های ایجاد شده رو ببینید.</p>
+{% endblock %}
+
+{% block content %}
+    <div style="overflow: scroll;" class="form-group col-md-10 m-auto">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>شناسه دوره</th>
+                    <th>نام دوره</th>
+                    <th>تاریخ دوره</th>
+                    <th>نام مدرس</th>
+                    <th>مدیر اموزش</th>
+                    <th>نمایش</th>
+                    <!-- <th>کپی لینک</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{course.course_id}}</td>
+                    <td>{{course.courses_title}}</td>
+                    <td>{{course.courses_date}}</td>
+                    <td class="link">{{course.courses_teacher_name}}</td>
+                    <td>{{course.course_learning_manager}}</td>
+                    <td><a target="_blank" href="{{course.course_learning_manager}}/{{course.course_id}}">مشاهده</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>شناسه دوره</th>
+                    <th>نام دوره</th>
+                    <th>تاریخ دوره</th>
+                    <th>نام مدرس</th>
+                    <th>مدیر اموزش</th>
+                    <th>نمایش</th>
+                    <!-- <th>کپی لینک</th> -->
+                </tr>
+            </tfoot>
+        </table>
+        
+       
+    </div>
+{% endblock %}

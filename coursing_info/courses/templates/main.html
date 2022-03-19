@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body style="background-image:url( static/pattern.jpg);">
+    
+<aside>
+    <header style="height: 150px;">
+      <div style="text-align: center;"><img class="profile-picture" src="{% static 'rayanegan.png' %}"/>     
+      </div>
+    </header>
+    <nav class="side-navigation">
+      <ul>
+        <li class="upload"><a href="upload">آپلود فایل اکسل<i style="margin-left: 20px;" class=" wizard fa-solid fa-1"></i></a></li>
+        <li class="uploading"><a href="uploading">ساخت لینک ها<i style="margin-left: 20px;" class=" wizard fa-solid fa-2"></i></a></li>
+        <li class="showlinks"><a href="showlinks">نمایش لینک ها<i style="margin-left: 20px;" class=" wizard fa-solid fa-3"></i></a></li>
+        <li><a href="exit">خروج<i style="margin-left: 20px;" class="wizard fa-solid fa-power-off"></i></a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <div class="mobile_menu"><i class="fa-solid fa-bars"></i></div>
+    <div class="main-head">
+      
+      {% block description %}
+      {% endblock %}
+    </div>
+    <div class="wrapper">
+      <div class="container">
+
+        {% block content %}
+        {% endblock %}
+    
+      </div>
+    </div>
+    <footer class="footer">
+      <span>سامانه فراخوانی رایانگان</span><br>
+      <span style="font-size: 10px;">Devlop & Design : smnlotfi</span>
+    </footer>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+</body>
+</html>

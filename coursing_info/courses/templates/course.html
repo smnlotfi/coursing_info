@@ -1,0 +1,179 @@
+{% load static %}
+<html lang="fa-IR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet"> -->
+    <title>{{course.courses_title}}</title>
+</head>
+<body>
+    <div class="main">
+        <div class="logo">
+            <img src="{% static 'rayanegan.png'%}" alt="" class="logo-image" width="100%">
+        </div>
+        <div class="title-link">
+            <h3>فراخوان برگزاری دوره های آموزشی    {{course.courses_title}}</h3>
+            <h5 style="line-height: 0.1;">ویژه {{course.course_category}}</h5>
+
+            <p>(به صورت {{course.courses_online}})</p>
+        </div>
+        <div class="poster-image">
+            <img src="{{course.course_image}}" alt="">
+        </div>
+        <div id="aparat" class="aparat">
+            {{course.course_video | safe }}
+           
+        </div>
+          <div class="start-date">
+            <h4>تاریخ برگزاری دوره : {{course.courses_date}}</h4>
+        </div>
+        <div class="divider-image">
+            <img src="{% static 'divider.png'%}" alt="">
+        </div>
+        <div class="course-discription">
+            <p><span>عنوان دوره: </span>{{course.courses_title}}</p>
+            <p><span>کد دوره : </span>{{course.course_id}}</p>
+            <p><span>ساعت استاندارد : </span>{{course.course_time}}</p>
+        </div>
+        <div class="course-link">
+            <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/{{course.course_link}}"><i class="fas fa-link"></i>شناسنامه دوره</a>
+            <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/{{course.course_mashaghel_link}}"><i class="fas fa-link"></i>مشاغل مشمول دوره</a>
+        </div>
+        <div class="divider-image">
+            <img src="{% static 'divider.png'%}" alt="">
+        </div>
+        <div class="teacher">
+            <p><span>نام مدرس : </span>{{course.courses_teacher_name}}</p>
+        </div>
+        <div class="teacher-link">
+            <a href="http://elearning.rayanegan.com/userfiles/rezome/{{course.course_teacher_rezume}}"><i class="fas fa-link"></i>رزومه استاد</a>
+        </div>
+        <div class="contact">
+            <h4>ارتباط سریع و آسان</h4>
+            <a class="whatsapp" href="https://api.whatsapp.com/send?phone=+98{{course.course_whatsapp_number}}"><i style="float: left;" class="fa-brands fa-whatsapp"></i>{{course.course_whatsapp_number}}</a>
+            <a style="width: 35%;" href="tel://{{course.course_contact_number_2}}"><i style="float: left;" class="fa-solid fa-phone"></i>{{course.course_contact_number_2}}</a>
+            <a style="width: 35%;" href="tel://{{course.course_contact_number_1}}"><i style="float: left;" class="fa-solid fa-phone"></i>{{course.course_contact_number_1}}</a>
+        </div>
+        <div class="social-media">
+            <h4>شبکه های اجتماعی</h4>
+            <a href="https://www.instagram.com/rayanegan_institute/ " id="instagram"><img src="{% static 'instagram.png'%}" alt="" width="20px"><span></soan>اینستاگرام</span></a>
+            <a href="https://www.aparat.com/rayanegan_institute" id="aparat"><img src="{% static 'aparat.png'%}" alt="" width="20px"><span>آپارات</span></a>  
+        </div>
+    </div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Harmattan&display=swap');
+    body{
+        font-family: 'Harmattan', sans-serif;
+    }
+    .main{
+        background-color: #001f3f;
+        width: 30%;
+        margin: 0 auto;
+        border-radius: 30px;
+        box-shadow: 0px 0px 11px 1px #aba6a6;
+        border: 10px solid white;
+    }
+    .logo{
+        width: 30%;
+        margin: 0 auto;
+        height: auto;
+        border-radius: 20px;
+        background-color: rgb(255, 255, 255);
+        padding:1%;
+        margin-top: 5%;
+    }
+    .title-link , .start-date , .contact h4 , .social-media h4{
+        color: white;
+        text-align: center;
+    }
+    .title-link p{color:#ffc107;}
+    .poster-image img{
+        width: 95%;
+        height: auto;
+        margin: 2.5%;
+        border-radius: 5px;
+    }
+    .aparat{
+        width: 85%;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 3%;
+    }
+    .course-discription , .teacher{
+        color: white;
+        text-align: right;
+        padding-right: 5%;
+    }
+    .divider-image{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .divider-image img{
+        width: 80%;
+        padding: 6% 0;
+    }
+    .course-link , .contact , .social-media , .teacher-link {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .course-link a , .contact a , .teacher-link a{
+        border: 2px solid #ffc107;
+        padding: 2% 3%;
+        border-radius: 5px;
+        display: inline-block;
+        background: #ffc107;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        
+    }
+    .social-media #instagram span , .social-media #aparat span{
+        padding-left: 8px;
+    }
+    .social-media #instagram{
+        padding: 2% 3%;
+        border-radius: 5px;
+        display: inline-block;
+        background: linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .social-media #aparat{
+        border: 2px solid #df0f50;
+        padding: 2% 3%;
+        border-radius: 5px;
+        display: inline-block;
+        background: #df0f50;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .social-media{
+        margin-bottom: 20%;
+    }
+    a.whatsapp{
+            width: 75%!important;
+            margin-bottom: 15px!important;
+            background: #58f777!important;
+            border: 2px solid #58f777;
+}
+
+    @media only screen and (max-width: 900px) {
+        .main{
+            width: 95%;
+        }
+        .course-link a, .contact a, .teacher-link a {
+            margin-bottom: 2%;
+        }
+
+}
+</style>
+</html>
+
+
+

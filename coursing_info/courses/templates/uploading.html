@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block description %}
+<p>حالا نامی که در مرحله قبل برای فراخوان ها انتخاب کرده بودید را وارد نمایید و بعد از آن دکمه ایجاد فراخوان ها را فشار دهید تا همه فراخوانهای موجود در فایل اکسل برای شما نمایش داده شود</p>
+{% endblock %}
+{% block content %}
+<div class="col-sm-4 offset-8 m-auto">
+        <h1>{{msg}}</h1>
+       <form  method="POST" class="form-group">
+        {% csrf_token %}
+          <br><br><br><br>
+                <input name="file_name" type="text" placeholder="نام فراخوان  خود را وارد کنید" class="form-control"/>
+                <button class="btn btn-primary">ساخت فراخوان ها</button>
+       </form>
+       
+    </div>
+{% endblock %}

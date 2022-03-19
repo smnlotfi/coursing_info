@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block description %}
+<p>در این مرحله ابتدا برای فایل اکسلی که میخواهید بار گداری کنید یک نام انتخاب کرده و سپس خود فایل را از روی سیستم انتخاب میکنید و بعد از آن دکمه بار گداری را فشار دهید.</p>
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-sm-4 offset-8 m-auto">
+        <h1>{{ msg }}</h1>
+       <form  method="POST" class="form-group" enctype="multipart/form-data">
+        {% csrf_token %}
+          <br><br><br><br>
+          {{ form }}
+          <button type="submit" class="btn btn-primary">بارگزاری</button>
+       </form>
+
+       
+    </div>
+{% endblock %}
