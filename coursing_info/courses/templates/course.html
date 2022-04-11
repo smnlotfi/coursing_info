@@ -10,18 +10,19 @@
     <title>{{course.courses_title}}</title>
 </head>
 <body>
+    
     <div class="main">
         <div class="logo">
-            <img src="{% static 'rayanegan.png'%}" alt="" class="logo-image" width="100%">
+            <img src="{% static 'media/rayanegan.png'%}" alt="" class="logo-image" width="100%">
         </div>
         <div class="title-link">
-            <h3>فراخوان برگزاری دوره های آموزشی    {{course.courses_title}}</h3>
+            <h3>فراخوان برگزاری دوره های آموزشی    {{course.courses_date}}</h3>
             <h5 style="line-height: 0.1;">ویژه {{course.course_category}}</h5>
 
             <p>(به صورت {{course.courses_online}})</p>
         </div>
         <div class="poster-image">
-            <img src="{{course.course_image}}" alt="">
+            <img src="/media/{{ course.course_image }}" alt="">
         </div>
         <div id="aparat" class="aparat">
             {{course.course_video | safe }}
@@ -31,26 +32,31 @@
             <h4>تاریخ برگزاری دوره : {{course.courses_date}}</h4>
         </div>
         <div class="divider-image">
-            <img src="{% static 'divider.png'%}" alt="">
+            <img src="{% static 'media/divider.png'%}" alt="">
         </div>
-        <div class="course-discription">
-            <p><span>عنوان دوره: </span>{{course.courses_title}}</p>
-            <p><span>کد دوره : </span>{{course.course_id}}</p>
-            <p><span>ساعت استاندارد : </span>{{course.course_time}}</p>
-        </div>
-        <div class="course-link">
-            <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/{{course.course_link}}"><i class="fas fa-link"></i>شناسنامه دوره</a>
-            <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/{{course.course_mashaghel_link}}"><i class="fas fa-link"></i>مشاغل مشمول دوره</a>
-        </div>
-        <div class="divider-image">
-            <img src="{% static 'divider.png'%}" alt="">
-        </div>
-        <div class="teacher">
-            <p><span>نام مدرس : </span>{{course.courses_teacher_name}}</p>
-        </div>
-        <div class="teacher-link">
-            <a href="http://elearning.rayanegan.com/userfiles/rezome/{{course.course_teacher_rezume}}"><i class="fas fa-link"></i>رزومه استاد</a>
-        </div>
+        {% for specific_detail in specific_detailes %}
+            <div class="course-discription">
+                <p><span>عنوان دوره: </span>{{specific_detail.course_title}}</p>
+                <p><span>کد دوره : </span>{{specific_detail.course_id_list}}</p>
+                <p><span>ساعت استاندارد : </span>{{specific_detail.course_time}}</p>
+            </div>
+            <div class="course-link">
+                <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/None"><i class="fas fa-link"></i>شناسنامه دوره</a>
+                <a href="http://elearning.rayanegan.com/userfiles/shenasname-dore/{{specific_detail.course_mashaghel_link}}"><i class="fas fa-link"></i>مشاغل مشمول دوره</a>
+            </div>
+            {% if course.courses_teacher_name != None %}
+                <div class="teacher">
+                    <p><span>نام مدرس : </span>{{course.courses_teacher_name}}</p>
+                </div>
+            {% endif %}
+            
+            <div class="teacher-link">
+                <a href="http://elearning.rayanegan.com/userfiles/rezome/{{specific_detail.course_teacher_rezume}}"><i class="fas fa-link"></i>رزومه استاد</a>
+            </div>
+            <div class="divider-image">
+                <img src="{% static 'media/divider.png'%}" alt="">
+            </div>
+        {% endfor %}
         <div class="contact">
             <h4>ارتباط سریع و آسان</h4>
             <a class="whatsapp" href="https://api.whatsapp.com/send?phone=+98{{course.course_whatsapp_number}}"><i style="float: left;" class="fa-brands fa-whatsapp"></i>{{course.course_whatsapp_number}}</a>
@@ -59,8 +65,8 @@
         </div>
         <div class="social-media">
             <h4>شبکه های اجتماعی</h4>
-            <a href="https://www.instagram.com/rayanegan_institute/ " id="instagram"><img src="{% static 'instagram.png'%}" alt="" width="20px"><span></soan>اینستاگرام</span></a>
-            <a href="https://www.aparat.com/rayanegan_institute" id="aparat"><img src="{% static 'aparat.png'%}" alt="" width="20px"><span>آپارات</span></a>  
+            <a href="https://www.instagram.com/rayanegan_institute/ " id="instagram"><img src="{% static 'media/instagram.png'%}" alt="" width="20px"><span></soan>اینستاگرام</span></a>
+            <a href="https://www.aparat.com/rayanegan_institute" id="aparat"><img src="{% static 'media/aparat.png'%}" alt="" width="20px"><span>آپارات</span></a>  
         </div>
     </div>
 </body>
@@ -161,6 +167,9 @@
             margin-bottom: 15px!important;
             background: #58f777!important;
             border: 2px solid #58f777;
+}
+.teacher-link{
+    margin-top:10px
 }
 
     @media only screen and (max-width: 900px) {

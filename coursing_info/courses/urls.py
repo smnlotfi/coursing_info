@@ -7,7 +7,7 @@ urlpatterns = [
     path('',logindef,name='login'),
     path('uploading',upload_course,name='uploading'),
     path('upload',home,name='home'),
-    path('<str:course_learning_manager>/<int:course_id>',courses_show),
+    path('manage_<str:course_learning_manager>/<str:course_id>',courses_show),
     path('showlinks',showlinks,name='showlinks'),
     path('exit',exit,name='exit'),
 ]
